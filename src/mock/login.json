@@ -1,0 +1,25 @@
+{
+	"code": "1",
+	"msg": "登录成功",
+	"timeStamp": 1489738670500,
+	"data": {
+		"memberId": 1,
+		"memberUuid": "c78e7b8425b2485a657082649f6064",
+		"createTime": "20170614235959",
+		"token": "00b0c0891dcdbfdc0ed708ee3d3c431d:102",
+		"memberFullname": "张三",
+		"memberMobile": "13520794135",
+		"memberIcid": "110025198705305211",
+		"authNo": 0,
+		"loginNum": 11,
+		"isMobileActived": 0,
+		"isIcidActived": 1,
+		"avatarUrl": null,
+		"memberStatus": 2,
+		"denyDays": 12,
+		"orderStatus": 11,
+		"oderId": 11,
+		"orderCode": 123456,
+		"hasCard": true
+	}
+}

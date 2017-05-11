@@ -6,7 +6,7 @@
   export default {
     data () {
       return {
-        msg: '我的'
+        msg: '更多'
       }
     }
   }

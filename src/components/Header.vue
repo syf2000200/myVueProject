@@ -1,9 +1,10 @@
 <template>
-  <header>
-    <router-link :to="{ name: 'strategy', params: { id: 123 }}">借款攻略</router-link>
-    <span>{{ msg }}</span>
-    <s></s>
-  </header>
+  <mu-appbar title="现金贷">
+    <mu-icon-button icon="arrow_back" slot="left" v-on:click="goBack()"/>
+    <mu-badge content="12" circle secondary slot="right">
+      <mu-icon-button icon="notifications"/>
+    </mu-badge>
+  </mu-appbar>
 </template>
 
 <script>
@@ -12,37 +13,22 @@
       return {
         msg: '现金贷'
       }
+    },
+    methods: {
+      goBack () {
+        this.$router.go(-1)
+      }
     }
   }
 </script>
 
-<style scoped>
-  header{
-    height: 44px;
-    line-height: 44px;
-    background-color: #00AAFF;
-    text-align: center;
-    padding: 0 15px;
-    position: relative;
+<style>
+  .mu-badge-circle{
+    width: 16px;
+    height: 16px;
   }
-  header span{
-    font-size: 18px;
-    color: #FFF;
-  }
-  header a{
-    font-size: 16px;
-    color: #FFF;
-    text-decoration: none;
-    position: absolute;
-    left: 15px;
-  }
-  header s{
-    width: 26px;
-    height: 22px;
-    margin: 13px 0 0 0;
-    position: absolute;
-    right: 15px;
-    background: url(./../assets/nav_btn_notice@3x.png) no-repeat center;
-    background-size: 20px;
+  .mu-badge-float{
+    top: 4px;
+    right: 4px;
   }
 </style>

@@ -4,23 +4,20 @@
     <transition :name="transitionName">
       <router-view class="view"></router-view>
     </transition>
-    <div class="botLink">
-      <router-link to="/home"><span>{{ home }}</span></router-link>
-      <router-link to="/investment"><span>{{ investment }}</span></router-link>
-      <router-link to="/account"><span>{{ account }}</span></router-link>
-    </div>
+    <Bottoms></Bottoms>
   </div>
 </template>
 
 <script>
 import Headers from './components/Header'
+import Bottoms from './components/Bottom'
 export default {
   name: 'app',
   data () {
     return {
       home: '首页',
-      investment: '投资',
-      account: '账户',
+      account: '我的',
+      more: '更多',
       transitionName: 'slide-left'
     }
   },
@@ -32,7 +29,8 @@ export default {
     }
   },
   components: {
-    Headers
+    Headers,
+    Bottoms
   }
 }
 </script>
@@ -70,52 +68,5 @@ a {
 }
 [v-cloak] {
   display: none;
-}
-
-.botLink {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  left: 0;
-  padding: 8px 0;
-  box-shadow: 0 1px 5px rgba(60,71,77,0.3);
-  overflow: hidden;
-  background-color: #FFF;
-}
-.botLink a {
-  width: 33.33%;
-  float: left;
-  text-decoration: none;
-  color: #A3BFCC;
-}
-.botLink a span {
-  line-height: 1;
-  padding-top: 25px;
-  height: 40px;
-  display: block;
-  background-size: 20px !important;
-}
-.botLink a:nth-child(1) span {
-  background: url(assets/tabbar_btn_borrowing_normal@3x.png) no-repeat center top;
-}
-.botLink a:nth-child(2) span {
-  background: url(assets/tabbar_btn_me_normal@3x.png) no-repeat center top;
-}
-.botLink a:nth-child(3) span {
-  background: url(assets/tabbar_btn_more_normal@3x.png) no-repeat center top;
-}
-.botLink a.router-link-active {
-  color: #00AAFF;
-}
-.botLink a.router-link-active:nth-child(1) span {
-  background: url(assets/tabbar_btn_borrowing_selected@3x.png) no-repeat center top;
-}
-.botLink a.router-link-active:nth-child(2) span {
-  background: url(assets/tabbar_btn_me_selected@3x.png) no-repeat center top;
-}
-.botLink a.router-link-active:nth-child(3) span {
-  background: url(assets/tabbar_btn_more_selected@3x.png) no-repeat center top;
 }
 </style>

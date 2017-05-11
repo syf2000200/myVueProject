@@ -13,11 +13,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "muse-ui": "^2.0.2",
     "vue": "^2.1.0",
-    "vue-awesome-swiper": "^2.3.2",
+    "vue-awesome-swiper": "^2.4.0",
     "vue-html-editor": "^0.2.1",
     "vue-msgbox": "^0.2.14",
-    "vue-popup-mixin": "^1.0.6"
+    "vue-popup-mixin": "^1.0.6",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
