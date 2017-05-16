@@ -6,7 +6,7 @@ import Vuex from 'vuex'
 import Axios from 'axios'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
-import 'muse-ui/dist/theme-light.css' // 使用 light 主题
+import 'muse-ui/dist/theme-teal.css' // 使用 light 主题
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import App from './App'
 
@@ -31,6 +31,7 @@ const routes = [
     redirect: '/home'
   },
   { path: '/home',
+    name: 'home',
     component: Home
   },
   { path: '/investment',
@@ -38,10 +39,12 @@ const routes = [
     component: Investment
   },
   { path: '/account',
+    name: 'account',
     component: Account
   },
   {
     path: '/more',
+    name: 'more',
     component: More
   },
   {
@@ -50,7 +53,7 @@ const routes = [
     component: Login
   },
   {
-    path: 'strategy',
+    path: '/strategy',
     name: 'strategy',
     component: Strategy
   }

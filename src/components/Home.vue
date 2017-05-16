@@ -91,7 +91,7 @@ export default {
   padding-bottom: 80px;
 }
 #bannerWrap {
-  background-color: #00AAFF;
+  background-color: #009688;
   overflow: hidden;
 }
 #bannerWrap h3 {
