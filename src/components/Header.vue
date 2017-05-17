@@ -1,15 +1,22 @@
 <template>
-  <mu-appbar v-bind:title="msg">
+  <mu-appbar title="现金贷" class="header">
     <mu-icon-button icon="arrow_back" slot="left" v-if="isShow" v-on:click="goBack()"/>
-    <mu-icon-button icon="menu" label="undocked drawer" slot="left" v-if="!isShow" @click="toggle(true)"/>
-    <mu-drawer :open="open" :docked="docked" @close="toggle()">
+    <!-- <mu-icon-button icon="menu" label="undocked drawer" slot="left" v-if="!isShow" @click="toggle(true)"/> -->
+    <!-- <mu-drawer :open="open" :docked="docked" @close="toggle()">
       <mu-list @itemClick="docked ? '' : toggle()">
         <mu-list-item title="首页"/>
-        <mu-list-item title="Menu Item 2"/>
-        <mu-list-item title="Menu Item 3"/>
+        <mu-list-item title="我的"/>
+        <mu-list-item title="更多"/>
         <mu-list-item v-if="docked" @click.native="open = false" title="Close"/>
       </mu-list>
-    </mu-drawer>
+    </mu-drawer> -->
+    <mu-icon-menu icon="menu" slot="left" v-if="!isShow">
+      <mu-menu-item title="菜单 1"/>
+      <mu-menu-item title="菜单 2"/>
+      <mu-menu-item title="菜单 3"/>
+      <mu-menu-item title="菜单 4"/>
+      <mu-menu-item title="菜单 5"/>
+    </mu-icon-menu>
     <mu-badge v-bind:content="msgCount" circle secondary slot="right">
       <mu-icon-button icon="notifications"/>
     </mu-badge>
@@ -55,11 +62,14 @@
 </script>
 
 <style>
-  .mu-badge-circle{
+  .header.mu-appbar{
+    height: 46px;
+  }
+  .header .mu-badge-circle{
     width: 16px;
     height: 16px;
   }
-  .mu-badge-float{
+  .header .mu-badge-float{
     top: 4px;
     right: 4px;
   }

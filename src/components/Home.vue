@@ -14,7 +14,7 @@
         <swiper-slide class="swiper-item" v-for="itemb in itemsb"><span>{{ itemb.message }}</span></swiper-slide>
       </swiper>
       <s></s>
-      <a href="">选择优惠券</a>
+      <router-link to="/strategy">选择优惠券</router-link>
     </div>
     <div id="indexList">
       <ul>

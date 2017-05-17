@@ -2,7 +2,9 @@
   <div id="app">
     <Headers></Headers>
     <transition :name="transitionName">
-      <router-view class="view"></router-view>
+      <keep-alive>
+        <router-view class="view"></router-view>
+      </keep-alive>
     </transition>
     <Bottoms></Bottoms>
   </div>

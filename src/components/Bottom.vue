@@ -1,5 +1,5 @@
 <template>
-  <mu-paper>
+  <mu-paper class="bottom">
     <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
       <mu-bottom-nav-item to="/home" value="home" title="首页" icon="home"/>
       <mu-bottom-nav-item to="/account" value="music" title="我的" icon="person"/>
@@ -24,9 +24,13 @@ export default {
 </script>
 
 <style>
-  .mu-paper{
+  .bottom.mu-paper{
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 900;
+  }
+  .bottom .mu-bottom-nav{
+    height: 50px;
   }
 </style>
