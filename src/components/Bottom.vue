@@ -1,11 +1,23 @@
 <template>
-  <mu-paper class="bottom">
-    <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
-      <mu-bottom-nav-item to="/home" value="home" title="首页" icon="home"/>
-      <mu-bottom-nav-item to="/account" value="music" title="我的" icon="person"/>
-      <mu-bottom-nav-item to="/more" value="books" title="更多" icon="more_horiz"/>
-    </mu-bottom-nav>
-  </mu-paper>
+  <div class="bottom-bar">
+    <mt-navbar>
+      <router-link to="/home">
+        <mt-tab-item>
+          <i slot="icon" class="material-icons">home</i>
+        </mt-tab-item>
+      </router-link>
+      <router-link to="/account">
+        <mt-tab-item>
+          <i slot="icon" class="material-icons">person</i>
+        </mt-tab-item>
+      </router-link>
+      <router-link to="/more">
+        <mt-tab-item>
+          <i slot="icon" class="material-icons">more_horiz</i>
+        </mt-tab-item>
+      </router-link>
+    </mt-navbar>
+  </div>
 </template>
 
 <script>
@@ -24,13 +36,28 @@ export default {
 </script>
 
 <style>
-  .bottom.mu-paper{
+  .bottom-bar .mint-navbar{
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    z-index: 900;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    flex-flow: row;
+    box-shadow: 0 -1px 6px #ebebeb;
   }
-  .bottom .mu-bottom-nav{
-    height: 50px;
+  .bottom-bar .mint-navbar>a{
+    flex: 1;
+    text-decoration: none;
+  }
+  .bottom-bar .mint-navbar>a  .material-icons{
+    transition: all 0.2s linear;
+  }
+  .bottom-bar .mint-navbar>a.router-link-active .material-icons{
+    transform: scale(1.2);
+  }
+  .bottom-bar .mint-navbar .mint-tab-item{
+    padding-top: 8px;
   }
 </style>

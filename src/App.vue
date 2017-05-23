@@ -58,7 +58,7 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #26a2ff;
 }
 
 #app {
@@ -70,5 +70,11 @@ a {
 }
 [v-cloak] {
   display: none;
+}
+.view{
+  padding: 40px 0;
+}
+.material-icons{
+  vertical-align: middle;
 }
 </style>

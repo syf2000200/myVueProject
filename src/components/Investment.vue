@@ -1,6 +1,6 @@
 <template>
   <div class="bar" v-cloak>
-  	<mu-list>
+  	<!-- <mu-list>
 	  <mu-list-item>
 	    <mu-text-field hintText="188****8888" label="手机号码:" fullWidth disabled/>
 	  </mu-list-item>
@@ -14,30 +14,37 @@
 	    <mu-text-field hintText="请输入您的QQ号码" labelFloat label="QQ 号码:" type="number" fullWidth errorText=""/>
 	  </mu-list-item>
 	  <mu-list-item>
-	    <mu-text-field hintText="请选择您的学历" labelFloat label="学历:" fullWidth errorText="这是必填项"/>
+	    <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" hintText="请选择您的学历" labelFloat label="学历:" fullWidth errorText="">
+        <mu-menu-item v-for="text,index in list" :key="index" :value="index" :title="text" />
+      </mu-select-field>
 	  </mu-list-item>
 	  <mu-list-item>
-	    <mu-text-field hintText="请选择您的婚姻状况" labelFloat label="婚姻:" fullWidth errorText=""/>
+      <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" hintText="请选择您的婚姻状况" labelFloat label="婚姻:" fullWidth errorText="">
+        <mu-menu-item v-for="text,index in list2" :key="index" :value="index" :title="text" />
+      </mu-select-field>
 	  </mu-list-item>
 	  <mu-list-item>
-	    <div class="demo-picker-container" v-show="open">
-        <mu-appbar title="Title">
-          <mu-icon-button icon="close" slot="left" @click="close"/>
-          <mu-icon-button icon="done" slot="right" @click="toggle"/>
-        </mu-appbar>
-        <transition name="fade">
-  		    <mu-picker :open="open" :slots="addressSlots" :visible-item-count="5" @change="addressChange" :values="address"/>
-        </transition>
-		  </div>
+      <div v-show="open">
+        <div class="picker-frame"></div>
+  	    <div class="demo-picker-container">
+          <mu-appbar zDepth="0">
+            <mu-icon-button icon="close" slot="left" @click="close"/>
+            <mu-icon-button icon="done" slot="right" @click="toggle"/>
+          </mu-appbar>
+          <transition name="fade">
+    		    <mu-picker :open="open" :slots="addressSlots" :visible-item-count="5" @change="addressChange" :values="address"/>
+          </transition>
+  		  </div>
+      </div>
       <mu-text-field :hintText="addressProvince + addressCity" label="常住地址:" fullWidth @focus="toggle" errorText=""/>
 	  </mu-list-item>
 	  <mu-list-item>
-	    <mu-text-field hintText="请输入详细地址: 街道、小区、门牌号等" fullWidth errorText=""/>
+	    <mu-text-field hintText="请输入详细地址: 街道、小区、门牌号等" fullWidth multiLine :rows="3" :rowsMax="6" errorText=""/>
 	  </mu-list-item>
 	  <mu-list-item>
 	    <mu-raised-button label="下一步" primary fullWidth/>
 	  </mu-list-item>
-	</mu-list>
+	</mu-list> -->
   </div>
 </template>
 
@@ -97,7 +104,10 @@
         ],
         address: ['北京', '北京'],
         addressProvince: '北京',
-        addressCity: '北京'
+        addressCity: '北京',
+        game1: 0,
+        list: ['小学', '初中', '高中', '本科', '研究生', '博士'],
+        list2: ['未婚', '已婚', '离异', '丧偶']
       }
     },
     methods: {
@@ -129,7 +139,7 @@
 </script>
 
 <style>
-  .bar{
+  /*.bar{
   	padding-bottom: 56px;
   }
   .bar .mu-text-field.has-label .mu-text-field-content{
@@ -148,9 +158,27 @@
     bottom: 0;
     background-color: #fff;
     width: 100%;
+    height: 50%;
     left: 0;
     z-index: 99;
-    padding: 30px 0;
+    padding-bottom: 50px;
     border-top: 1px solid #eee;
   }
+  .bar .demo-picker-container .mu-appbar{
+    background: transparent;
+  }
+  .bar .demo-picker-container .mu-appbar>div{
+    color: #333;
+  }
+  .bar .picker-frame{
+    position: fixed;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .bar .mu-select-field .mu-dropDown-menu-text{
+    text-align: left;
+  }*/
 </style>

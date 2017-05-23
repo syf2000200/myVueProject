@@ -26,7 +26,7 @@
       <span>到期应还: {{ price }}元</span>
     </div>
     <div id="indexBtn">
-      <mu-raised-button label="立即借款" primary fullWidth v-on:click="goNext()"/>
+      <!-- <mu-raised-button label="立即借款" primary fullWidth v-on:click="goNext()"/> -->
     </div>
 
   </div>
@@ -46,15 +46,12 @@ export default {
       items: [
         { message: '3000' },
         { message: '6000' },
-        { message: '9000' },
-        { message: '12000' },
-        { message: '16000' }
+        { message: '9000' }
       ],
       itemsb: [
         { message: '15' },
         { message: '30' },
-        { message: '60' },
-        { message: '90' }
+        { message: '60' }
       ],
       msg: 'login',
       verify: '117.00',
@@ -91,7 +88,7 @@ export default {
   padding-bottom: 80px;
 }
 #bannerWrap {
-  background-color: #009688;
+  background-color: #26a2ff;
   overflow: hidden;
 }
 #bannerWrap h3 {
