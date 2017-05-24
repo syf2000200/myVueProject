@@ -65,18 +65,4 @@
 </script>
 
 <style>
-  /*.more .mu-flexbox{
-    padding-bottom: 30px;
-  }
-  .more .mu-item-title-row{
-    text-align: left;
-  }
-  .more .flex span{
-    display: block;
-    text-align: center;
-  }
-  .more .mu-avatar{
-    margin: 30px auto 8px;
-    display: block;
-  }*/
 </style>

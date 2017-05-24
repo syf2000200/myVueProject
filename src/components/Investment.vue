@@ -1,50 +1,45 @@
 <template>
-  <div class="bar" v-cloak>
-  	<!-- <mu-list>
-	  <mu-list-item>
-	    <mu-text-field hintText="188****8888" label="手机号码:" fullWidth disabled/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-text-field hintText="请输入您的姓名" labelFloat label="姓名:" fullWidth errorText=""/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-text-field hintText="请输入您的身份证号" labelFloat label="身份证号:" fullWidth errorText=""/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-text-field hintText="请输入您的QQ号码" labelFloat label="QQ 号码:" type="number" fullWidth errorText=""/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" hintText="请选择您的学历" labelFloat label="学历:" fullWidth errorText="">
-        <mu-menu-item v-for="text,index in list" :key="index" :value="index" :title="text" />
-      </mu-select-field>
-	  </mu-list-item>
-	  <mu-list-item>
-      <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" hintText="请选择您的婚姻状况" labelFloat label="婚姻:" fullWidth errorText="">
-        <mu-menu-item v-for="text,index in list2" :key="index" :value="index" :title="text" />
-      </mu-select-field>
-	  </mu-list-item>
-	  <mu-list-item>
-      <div v-show="open">
-        <div class="picker-frame"></div>
-  	    <div class="demo-picker-container">
-          <mu-appbar zDepth="0">
-            <mu-icon-button icon="close" slot="left" @click="close"/>
-            <mu-icon-button icon="done" slot="right" @click="toggle"/>
-          </mu-appbar>
-          <transition name="fade">
-    		    <mu-picker :open="open" :slots="addressSlots" :visible-item-count="5" @change="addressChange" :values="address"/>
-          </transition>
-  		  </div>
+  <div class="invest" v-cloak>
+    <mt-field label="手机号码:" placeholder="188 **** 8888" disabled></mt-field>
+    <mt-field label="姓名:" placeholder="请输入您的姓名"></mt-field>
+    <mt-field label="身份证号:" placeholder="请输入您的身份证号"></mt-field>
+    <mt-field label="QQ 号码:" placeholder="请输入您的QQ号码"></mt-field>
+    <mt-cell title="学历:" @click.native="educationVisible=true" is-link class="address">{{ educationInfo }}</mt-cell>
+    <mt-popup v-model="educationVisible" position="bottom" pop-transition="popup-fade" class="mint-popup" closeOnClickModal>
+      <div class="page-picker">
+        <div class="page-picker-wrapper">
+          <mt-picker :slots="educationSlots" @change="onEducationChange" :visible-item-count="5" :show-toolbar="true">
+            <span class="cancel" @click="educationVisible=false"><i class="material-icons">clear</i></span>
+            <span class="confirm"><i class="material-icons">done</i></span>
+          </mt-picker>
+        </div>
       </div>
-      <mu-text-field :hintText="addressProvince + addressCity" label="常住地址:" fullWidth @focus="toggle" errorText=""/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-text-field hintText="请输入详细地址: 街道、小区、门牌号等" fullWidth multiLine :rows="3" :rowsMax="6" errorText=""/>
-	  </mu-list-item>
-	  <mu-list-item>
-	    <mu-raised-button label="下一步" primary fullWidth/>
-	  </mu-list-item>
-	</mu-list> -->
+    </mt-popup>
+    <!-- 婚姻 -->
+    <mt-cell title="婚姻:" @click.native="marrigeVisible=true" is-link class="address">{{ marrigeInfo }}</mt-cell>
+    <mt-popup v-model="marrigeVisible" position="bottom" pop-transition="popup-fade" class="mint-popup" closeOnClickModal>
+      <div class="page-picker">
+        <div class="page-picker-wrapper">
+          <mt-picker :slots="marrigeSlots" @change="onMarrigeChange" :visible-item-count="5" :show-toolbar="true">
+            <span class="cancel" @click="marrigeVisible=false"><i class="material-icons">clear</i></span>
+            <span class="confirm"><i class="material-icons">done</i></span>
+          </mt-picker>
+        </div>
+      </div>
+    </mt-popup>
+    <!-- 常住地址 -->
+    <mt-cell title="常住地址:" @click.native="popupVisible=true" is-link class="address">{{ addressProvince + addressCity }}</mt-cell>
+    <mt-popup v-model="popupVisible" position="bottom" pop-transition="popup-fade" class="mint-popup" closeOnClickModal>
+      <div class="page-picker">
+        <div class="page-picker-wrapper">
+          <mt-picker :slots="addressSlots" @change="onAddressChange" :visible-item-count="5" :show-toolbar="true">
+            <span class="cancel" @click="popupVisible=false"><i class="material-icons">clear</i></span>
+            <span class="confirm"><i class="material-icons">done</i></span>
+          </mt-picker>
+        </div>
+      </div>
+    </mt-popup>
+    <mt-field label="" placeholder="请输入详细地址: 街道、小区、门牌号等" type="textarea" rows="4"></mt-field>
   </div>
 </template>
 
@@ -85,100 +80,97 @@
     '澳门': ['澳门'],
     '台湾': ['台北市', '高雄市', '台北县', '桃园县', '新竹县', '苗栗县', '台中县', '彰化县', '南投县', '云林县', '嘉义县', '台南县', '高雄县', '屏东县', '宜兰县', '花莲县', '台东县', '澎湖县', '基隆市', '新竹市', '台中市', '嘉义市', '台南市']
   }
+  const marriage = ['未婚', '已婚', '离异', '丧偶']
+  const education = ['小学', '初中', '高中', '本科', '硕士', '博士']
 
   export default {
     data () {
       return {
-        open: false,
         addressSlots: [
           {
-            width: '100%',
-            textAlign: 'right',
-            values: Object.keys(address)
-          },
-          {
-            width: '100%',
-            textAlign: 'left',
-            values: ['北京']
+            flex: 1,
+            values: Object.keys(address),
+            className: 'slot1',
+            textAlign: 'center'
+          }, {
+            divider: true,
+            content: '-',
+            className: 'slot2'
+          }, {
+            flex: 1,
+            values: ['北京'],
+            className: 'slot3',
+            textAlign: 'center'
           }
         ],
-        address: ['北京', '北京'],
-        addressProvince: '北京',
-        addressCity: '北京',
-        game1: 0,
-        list: ['小学', '初中', '高中', '本科', '研究生', '博士'],
-        list2: ['未婚', '已婚', '离异', '丧偶']
+        marrigeSlots: [
+          {
+            flex: 1,
+            values: marriage,
+            className: 'slot1',
+            textAlign: 'center'
+          }
+        ],
+        educationSlots: [
+          {
+            flex: 1,
+            values: education,
+            className: 'slot1',
+            textAlign: 'center'
+          }
+        ],
+        addressProvince: '请选择您的常住地址',
+        addressCity: '',
+        marrigeInfo: '请选择您的婚姻状况',
+        educationInfo: '请选择您的学历',
+        popupVisible: false,
+        marrigeVisible: false,
+        educationVisible: false
       }
     },
     methods: {
-      addressChange (value, index) {
-        switch (index) {
-          case 0:
-            this.addressProvince = value
-            const arr = address[value]
-            this.addressSlots[1].values = arr
-            this.addressCity = arr[0]
-            break
-          case 1:
-            this.addressCity = value
-            break
-        }
-        this.address = [this.addressProvince, this.addressCity]
+      onAddressChange (picker, values) {
+        picker.setSlotValues(1, address[values[0]])
+        this.addressProvince = values[0]
+        this.addressCity = values[1]
       },
-      toggle () {
-        this.open = !this.open
+      onMarrigeChange (picker, values) {
+        picker.setSlotValues(1, marriage[0])
+        this.marrigeInfo = values[0]
       },
-      close () {
-        this.open = !this.open
-        this.address = ['北京', '北京']
-        this.addressProvince = '北京'
-        this.addressCity = '北京'
+      onEducationChange (picker, values) {
+        picker.setSlotValues(1, education[0])
+        this.educationInfo = values[0]
       }
     }
   }
 </script>
 
 <style>
-  /*.bar{
-  	padding-bottom: 56px;
-  }
-  .bar .mu-text-field.has-label .mu-text-field-content{
-  	padding-bottom: 0;
-  }
-  .bar .mu-item{
-  	padding-top: 0;
-  	padding-bottom: 0;
-  }
-  .bar .mu-text-field.has-label{
-  	min-height: 0;
-  	margin-bottom: 18px;
-  }
-  .bar .demo-picker-container{
-    position: fixed;
-    bottom: 0;
-    background-color: #fff;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    z-index: 99;
-    padding-bottom: 50px;
-    border-top: 1px solid #eee;
-  }
-  .bar .demo-picker-container .mu-appbar{
-    background: transparent;
-  }
-  .bar .demo-picker-container .mu-appbar>div{
-    color: #333;
-  }
-  .bar .picker-frame{
-    position: fixed;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,0.6);
-  }
-  .bar .mu-select-field .mu-dropDown-menu-text{
+  .invest .mint-cell-title{
     text-align: left;
-  }*/
+    width: 105px;
+    flex: initial;
+  }
+  .invest .mint-popup{
+    width: 100%;
+  }
+  .invest .picker-toolbar{
+    display: flex;
+  }
+  .invest .picker-toolbar span{
+    line-height: 40px;
+    flex: 1;
+  }
+  .invest .picker-toolbar span.cancel{
+    text-align: left;
+    padding-left: 15px;
+  }
+  .invest .picker-toolbar span.confirm{
+    text-align: right;
+    padding-right: 15px;
+  }
+  .invest .address .mint-field-core{
+    display: none;
+  }
 </style>

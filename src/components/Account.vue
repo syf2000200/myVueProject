@@ -57,4 +57,11 @@
   .account .mint-cell-wrapper{
     text-align: left;
   }
+  .account .mint-cell-text{
+    color: #3D474C;
+    font-size: 16px;
+  }
+  .account .material-icons{
+    font-size: 20px;
+  }
 </style>

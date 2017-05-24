@@ -27,6 +27,7 @@
     </div>
     <div id="indexBtn">
       <!-- <mu-raised-button label="立即借款" primary fullWidth v-on:click="goNext()"/> -->
+      <mt-button size="large" type="primary" @click="goNext()">立即借款</mt-button>
     </div>
 
   </div>

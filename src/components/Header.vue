@@ -34,7 +34,7 @@
       }
     },
     watch: {
-      '$route' (to, from) {
+      $route (to, from) {
         let toHome = to.path.indexOf('home')
         let toAccount = to.path.indexOf('account')
         let toMore = to.path.indexOf('more')
