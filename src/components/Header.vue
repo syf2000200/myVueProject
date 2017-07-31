@@ -6,7 +6,7 @@
         <mt-button v-if="!isShow">借款攻略</mt-button>
       </router-link>
       <router-link to="/strategy" slot="right">
-        <mt-button>消息<mt-badge type="error" size="small">10</mt-badge></mt-button>
+        <mt-button><i class="material-icons">notifications_none</i><mt-badge type="error" size="small">{{ msgCount }}</mt-badge></mt-button>
       </router-link>
       
     </mt-header>
@@ -55,5 +55,8 @@
 <style>
   .header .mint-header-title{
     font-size: 18px;
+  }
+  .header .mint-badge.is-error{
+    margin-left: 2px;
   }
 </style>
