@@ -1,12 +1,14 @@
 <template>
   <div class="header">
-    <mt-header title="标题" fixed>
-      <mt-button icon="back" slot="left" v-if="isShow" v-on:click="goBack()"></mt-button>
+    <mt-header :title="msg" fixed>
+      <mt-button slot="left" v-if="isShow" @click="goBack()">
+        <i class="iconfont icon-fanhui"></i>
+      </mt-button>
       <router-link to="/strategy" slot="left">
         <mt-button v-if="!isShow">借款攻略</mt-button>
       </router-link>
       <router-link to="/strategy" slot="right">
-        <mt-button><i class="material-icons">notifications_none</i><mt-badge type="error" size="small">{{ msgCount }}</mt-badge></mt-button>
+        <mt-button><i class="iconfont icon-xiaoxi1"></i><mt-badge type="error" size="small">{{ msgCount }}</mt-badge></mt-button>
       </router-link>
       
     </mt-header>
@@ -57,6 +59,6 @@
     font-size: 18px;
   }
   .header .mint-badge.is-error{
-    margin-left: 2px;
+    margin-left: 6px;
   }
 </style>

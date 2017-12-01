@@ -5,19 +5,19 @@
       <p>188 **** 8888</p>
     </div>
     <mt-cell title="个人资料" is-link to="/account/person">
-      <i slot="icon" class="material-icons">assignment</i>
+      <i slot="icon" class="iconfont icon-xinwenzixun"></i>
     </mt-cell>
     <mt-cell title="借款记录" is-link>
-      <i slot="icon" class="material-icons">chrome_reader_mode</i>
+      <i slot="icon" class="iconfont icon-zhangdan"></i>
     </mt-cell>
     <mt-cell title="我的银行卡" is-link>
-      <i slot="icon" class="material-icons">credit_card</i>
+      <i slot="icon" class="iconfont icon-jishuwendang"></i>
     </mt-cell>
     <mt-cell title="意见反馈" is-link>
-      <i slot="icon" class="material-icons">feedback</i>
+      <i slot="icon" class="iconfont icon-xiaoyanjing"></i>
     </mt-cell>
     <mt-cell title="设置" is-link>
-      <i slot="icon" class="material-icons">settings</i>
+      <i slot="icon" class="iconfont icon-settings"></i>
     </mt-cell>
   </div>
 </template>
@@ -32,7 +32,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .account .mu-item-title{
   	text-align: left;
   }
@@ -60,8 +60,5 @@
   .account .mint-cell-text{
     color: #3D474C;
     font-size: 16px;
-  }
-  .account .material-icons{
-    font-size: 20px;
   }
 </style>

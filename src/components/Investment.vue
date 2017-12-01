@@ -146,7 +146,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .invest .mint-cell-title{
     text-align: left;
     width: 105px;

@@ -1,55 +1,23 @@
 <template>
   <div class="more">
-    <!-- <mu-flexbox>
-      <mu-flexbox-item class="flex">
-        <div>
-          <mu-avatar slot="center" icon="folder"/>
-          <span>新手指南</span>
-        </div>
-      </mu-flexbox-item>
-      <mu-flexbox-item class="flex">
-        <div>
-          <mu-avatar slot="center" icon="folder"/>
-          <span>公告中心</span>
-        </div>
-      </mu-flexbox-item>
-      <mu-flexbox-item class="flex">
-        <div>
-          <mu-avatar slot="center" icon="folder"/>
-          <span>帮助中心</span>
-        </div>
-      </mu-flexbox-item>
-      <mu-flexbox-item class="flex">
-        <div>
-          <mu-avatar slot="center" icon="folder"/>
-          <span>客户服务</span>
-        </div>
-      </mu-flexbox-item>
-    </mu-flexbox>
-    <mu-divider/>
-    <mu-list>
-      <mu-list-item title="这个周末一起吃饭么?">
-        <mu-avatar src="/assets/logo.png" slot="leftAvatar"/>
-        <span slot="describe">
-          <span style="color: rgba(0, 0, 0, .87)">Myron Liu -</span> 周末要来你这里出差，要不要一起吃个饭呀，实在编不下去了,哈哈哈哈哈哈
-        </span>
-      </mu-list-item>
-      <mu-divider inset/>
-      <mu-list-item title="这个周末一起吃饭么?">
-        <mu-avatar src="/assets/logo.png" slot="leftAvatar"/>
-        <span slot="describe">
-          <span style="color: rgba(0, 0, 0, .87)">Myron Liu -</span> 周末要来你这里出差，要不要一起吃个饭呀，实在编不下去了,哈哈哈哈哈哈
-        </span>
-      </mu-list-item>
-      <mu-divider inset/>
-      <mu-list-item title="这个周末一起吃饭么?">
-        <mu-avatar src="/assets/logo.png" slot="leftAvatar"/>
-        <span slot="describe">
-          <span style="color: rgba(0, 0, 0, .87)">Myron Liu -</span> 周末要来你这里出差，要不要一起吃个饭呀，实在编不下去了,哈哈哈哈哈哈
-        </span>
-      </mu-list-item>
-      <mu-divider inset/>
-    </mu-list> -->
+    <mt-navbar v-model="selected">
+      <mt-tab-item id="1">选项一</mt-tab-item>
+      <mt-tab-item id="2">选项二</mt-tab-item>
+      <mt-tab-item id="3">选项三</mt-tab-item>
+    </mt-navbar>
+
+    <!-- tab-container -->
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="1">
+        <mt-cell v-for="n in 10" :title="'内容 ' + n" />
+      </mt-tab-container-item>
+      <mt-tab-container-item id="2">
+        <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+      </mt-tab-container-item>
+      <mt-tab-container-item id="3">
+        <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+      </mt-tab-container-item>
+    </mt-tab-container>
   </div>
   
 </template>
@@ -58,11 +26,15 @@
   export default {
     data () {
       return {
-        msg: '更多'
+        msg: '更多',
+        selected: true
       }
     }
   }
 </script>
 
-<style>
+<style scoped>
+  .mint-navbar{
+    margin-bottom: 2px;
+  }
 </style>

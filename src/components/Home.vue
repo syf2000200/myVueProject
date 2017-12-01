@@ -91,6 +91,7 @@ export default {
 #bannerWrap {
   background-color: #26a2ff;
   overflow: hidden;
+  text-align: center;
 }
 #bannerWrap h3 {
   padding: 27px 0 6px 0;
@@ -113,6 +114,9 @@ export default {
   height: 1px;
   border-bottom: 1px dashed #fff;
   margin: 0 auto;
+}
+#indexList{
+  text-align: center;
 }
 #indexList ul li{
   text-align: left;
