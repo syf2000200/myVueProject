@@ -31,6 +31,9 @@
   	margin: 0;
   	color: #fff;
   }
+  #notice{
+    text-align: center;
+  }
   #notice>div {
   	height: 35px;
   	line-height: 35px;
