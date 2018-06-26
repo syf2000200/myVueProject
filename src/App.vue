@@ -17,7 +17,7 @@ export default {
   name: 'app',
   data () {
     return {
-      home: '首页',
+      home: '首页1111111',
       account: '我的',
       more: '更多',
       transitionName: 'slide-left'

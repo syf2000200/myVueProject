@@ -67,7 +67,7 @@ export default {
     Notices
   },
   methods: {
-    goNext: function () {
+    goNext () {
       if (!this.isLogin) {
         this.$router.push({
           name: 'login'
